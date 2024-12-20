@@ -3,7 +3,6 @@
  */
 
 package com.callumhobby.adventofcode2024day2;
-
 /**
  *
  * @author CallumBinns
@@ -11,6 +10,11 @@ package com.callumhobby.adventofcode2024day2;
 public class AdventOfCode2024Day2 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        InputReader in1 = new InputReader("src\\main\\java\\com\\callumhobby\\adventofcode2024day2\\Input.txt");
+        
+        for (String ln : in1.getInput()) {
+            
+        }
+
     }
 }
