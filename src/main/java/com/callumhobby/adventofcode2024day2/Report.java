@@ -13,12 +13,12 @@ import java.util.List;
  * @author CallumBinns
  */
 public class Report {
-    private List<Integer> values;
+    public List<Integer> values;
     public boolean isSafe;
     
     public Report(String values){
         this.values = makeIntList(values);
-        this.isSafe = safetyChecks();
+        this.isSafe = true;
     }
     
     
@@ -33,13 +33,13 @@ public class Report {
          return formattedData;
     }
     
-    private boolean safetyChecks(){
-        Integer prev = values.get(0);
+    public void safetyChecks(List<Integer> in){
+        Integer prev = in.get(0);
         boolean safe = true;
         boolean ascending = true;
         Integer current;
-        for (int i = 1; i < values.size(); i++) {
-            current = values.get(i);
+        for (int i = 1; i < in.size(); i++) {
+            current = in.get(i);
             if (i==1 && current < prev) {
                 ascending = false;
             }
@@ -49,7 +49,7 @@ public class Report {
             if (Math.abs(prev-current) > 3) {
                 safe = false;
             }
-            if ((current < prev) != ascending) {
+            if ((current < prev) == ascending) {
                 safe = false;
             }
             
@@ -57,6 +57,7 @@ public class Report {
             
         }
                 
-     return safe;   
+        this.isSafe = safe;   
     }
+    
 }
